@@ -1,21 +1,22 @@
-services:
-  postgres:
-    container_name: postgresql17.2
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_USER}
-      POSTGRES_DB: ${DB_NAME}
-    ports:
-      - "5432:5432"
+version: '3.8'
 
-  pgadmin:
-    container_name: PGADM
-    image: dpage/pgadmin4
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${DB_USER}
+services:
+  spring-app:
+    container_name: spring-app
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/db-hml
+      DB_USER: postgres
+      DB_PASS: postgres
+      DB_SHOW_SQL: true
+      DB_DEBUG: DEBUG
+      DB_TRACE: TRACE
+      SERVER_PORT: 8081
+      allow-origin: http://localhost:3000
+      config.origin-permitida: http://localhost:3000
+    restart: unless-stopped
+    
