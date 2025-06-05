@@ -1,0 +1,27 @@
+package br.com.meusindicato.sindicato.repository.criteria;
+public enum SearchOperation {
+    GREATER_THAN,
+    GREATER_THAN_LOCAL_DATE,
+    LESS_THAN,
+    LESS_THAN_LOCAL_DATE,
+    GREATER_THAN_EQUAL,
+    GREATER_THAN_EQUAL_LOCAL_DATE,
+    LESS_THAN_EQUAL,
+    LESS_THAN_EQUAL_LOCAL_DATE,
+    NOT_EQUAL,
+    EQUAL,
+    EQUAL_LOCAL_DATE,
+    MATCH,
+    MATCH_END,
+    BETWEEN_NOW,
+    ISNULL_OR_LESS_THAN_LOCAL_DATE,
+
+    ISNULL_OR_GREATER_THAN_LOCAL_DATE,
+    ISNULL,
+    ISNULL_OR_EQUAL,
+    STARTS_WITH,
+    ENDS_WITH,
+    CONTAINS,
+    LIKE
+}
+
